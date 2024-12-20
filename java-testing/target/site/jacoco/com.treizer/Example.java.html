@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Example.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">java-testing</a> &gt; <a href="index.source.html" class="el_package">com.treizer</a> &gt; <span class="el_source">Example.java</span></div><h1>Example.java</h1><pre class="source lang-java linenums">package com.treizer;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+<span class="fc" id="L6">public class Example {</span>
+
+    // 1. Method to addition two numbers
+    public int add(int a, int b) {
+<span class="fc" id="L10">        return a + b;</span>
+    }
+
+    // 2. Method that throw an exception
+    public boolean checkPositive(int number) {
+<span class="fc bfc" id="L15" title="All 2 branches covered.">        if (number &lt; 0) {</span>
+<span class="fc" id="L16">            throw new IllegalArgumentException(&quot;El número no puede ser negativo&quot;);</span>
+        }
+<span class="fc" id="L18">        return true;</span>
+    }
+
+    // 3. Method to find a number of letters 'a'
+    public int countLettersA(String letter) {
+<span class="fc" id="L23">        return (int) letter.chars()</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">                .filter(l -&gt; l == 'a')</span>
+<span class="fc" id="L25">                .count();</span>
+    }
+
+    // 4. Method that return a boolean value if the list contains
+    public boolean containElement(List&lt;String&gt; list, String element) {
+<span class="fc" id="L30">        return list.contains(element);</span>
+    }
+
+    // 5. Method to reverse a string
+    public String revertString(String s) {
+<span class="fc" id="L35">        return new StringBuilder(s).reverse().toString();</span>
+    }
+
+    // 6. Method that calculate factorial of a number
+    public long factorial(int number) {
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (number &lt; 0) {</span>
+<span class="fc" id="L41">            throw new IllegalArgumentException(&quot;Factorial no definido para números negativos&quot;);</span>
+        }
+
+<span class="fc" id="L44">        long result = 1;</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for (int i = 1; i &lt;= number; i++) {</span>
+<span class="fc" id="L46">            result *= i;</span>
+        }
+
+<span class="fc" id="L49">        return result;</span>
+    }
+
+    // 7. Method to verify whether a number is prime
+    public boolean isPrime(int number) {
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (number &lt;= 1) {</span>
+<span class="fc" id="L55">            return false;</span>
+        }
+
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        for (int i = 2; i * i &lt;= number; i++) {</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">            if (number % i == 0) {</span>
+<span class="fc" id="L60">                return false;</span>
+            }
+        }
+
+<span class="fc" id="L64">        return true;</span>
+    }
+
+    // 8. Method that simulate a delay and return a message
+    public String delayMessage() throws InterruptedException {
+<span class="fc" id="L69">        Thread.sleep(5000);</span>
+<span class="fc" id="L70">        return &quot;Listo después de retraso&quot;;</span>
+    }
+
+    // Method to convert a list of Integer to a list of Strings
+    public List&lt;String&gt; convertToString(List&lt;Integer&gt; list) {
+<span class="fc" id="L75">        return list.stream()</span>
+<span class="fc" id="L76">                .map(String::valueOf)</span>
+<span class="fc" id="L77">                .collect(Collectors.toList());</span>
+    }
+
+    // 10. Method that calculate media from a list of Integers
+    public double calculateMedia(List&lt;Integer&gt; list) {
+<span class="fc bfc" id="L82" title="All 4 branches covered.">        if (list == null || list.isEmpty()) {</span>
+<span class="fc" id="L83">            throw new IllegalArgumentException(&quot;La lista no puede ser nula o vacía&quot;);</span>
+        }
+
+<span class="fc" id="L86">        return list.stream()</span>
+<span class="fc" id="L87">                .mapToInt(Integer::intValue)</span>
+<span class="fc" id="L88">                .average()</span>
+<span class="fc" id="L89">                .getAsDouble();</span>
+    }
+
+    // 11. Method to convert a list of String to upper case
+    public String convertListStringToUpperCase(List&lt;String&gt; list) {
+<span class="fc" id="L94">        return list.stream()</span>
+<span class="fc" id="L95">                .map(String::toUpperCase)</span>
+<span class="fc" id="L96">                .collect(Collectors.joining(&quot;, &quot;));</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
